@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equive="X-UA-Compatible" content="ie-edge">
+    <title>Vue基础</title>
+
+    <!--
+        开发环境版本，包含了有帮助的命令行警告.
+        这个是开发版本, 还有一个是发布版本, 发布版本经过了代码压缩, 没有警告提示, 也没有语法提示但是更快, 现在学习阶段就是用开发版本.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <h1>测试</h1>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: " Hello Vue! My name is Litway. Oh hh.  "
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
