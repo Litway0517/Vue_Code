@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on属性的学习</title>
+</head>
+<body>
+    <h1>测试v-on(@符号可以代替v-on)指令 -> 用来为表情绑上相应的事件</h1>
+    <hr>
+    <div id="app">
+        使用v-on:click能够绑定单击事件 <br>
+        使用@click也可以绑定单击事件 <br>
+        <input type="button" value="v-on指令" v-on:click="doIt"> <br>
+        <input type="button" value="v-on指令" @click="doIt">
+
+        <hr>
+        绑定双击事件 <br>
+        <input type="button" value="双击事件" @dblclick="doIt">
+
+        <hr>
+        试试blur事件 <br>
+        <input type="text" name="blue事件" id="_input" @blur="doIt">
+
+        <hr>
+        vue的页面是由数据进行驱动的, 尝试一下~ 只需要改变数据, 页面就会更改的, 从而达到目的<br>
+        <h2 @click="changeFood"> {{ food }} </h2>
+
+    </div>
+
+
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                food: "西兰花炒蛋",
+            },
+            methods: {
+                doIt: function () {
+                    alert("just do it");
+                },
+                changeFood: function () {
+                    console.log(this.food);
+                    this.food += "好好吃! ";
+                }
+            }
+        });
+    </script>
+
+
+
+
+</body>
+</html>
