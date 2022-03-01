@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>el挂载点</title>
 </head>
-<body>
+<body id="body">
     <h1>测试el挂载点</h1>
     <hr>
 
@@ -19,12 +19,16 @@
     <script>
         let vue = new Vue({
             // id选择器以 # 开头
-            el: "#app",
+            el: "#body",
 
             // class选择器以 . 开头
             // el: ".app2",
 
-            // 标签选择器直接选择 -> div标签 p标签等等等等. 仅仅支持双标签
+            /*
+                标签选择器直接选择 -> div标签 p标签等等等等(除了html标签和body标签不准挂载). 仅仅支持双标签
+                vue最好挂载在div标签上, 因为div标签没有什么样式. 不想p标签有一定样式.
+                最好选择id进行挂载.
+             */
             // el: "p",
             data: {
                 message: "黑马程序员"
