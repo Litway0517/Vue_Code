@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show指令</title>
+</head>
+<body>
+
+    <h1>学习v-show指令</h1>
+    <hr>
+    <div id="app">
+        <input type="button" value="切换图片显示" @click="changIsShow"> <br><br>
+        <input type="button" value="累加年龄" @click="addAge"> <br>
+        <img src="http://www.itheima.com/images/logo.png" v-show="isShow"> <br>
+        <img src="http://www.itheima.com/images/logo.png" v-show="age >= 18"> <br>
+    </div>
+
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                age: 17,
+            },
+            methods: {
+                changIsShow: function () {
+                    this.isShow = !this.isShow;
+                },
+                addAge:　function () {
+                    this.age++;
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
