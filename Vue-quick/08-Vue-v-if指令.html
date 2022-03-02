@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if指令学习</title>
+</head>
+<body>
+    <h1>学习v-if指令</h1>
+    <hr>
+
+    <div id="app">
+        <input type="button" value="切换显示" @click="toggleIsShow">
+        <p v-if="isShow">我是一个P标签</p> <br>
+        <p v-show="isShow">我是一个P标签 - v-show显示</p>
+
+        <h2 v-if="tempature >= 35">天气好热哇, 春天要来了~</h2>
+    </div>
+
+
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                tempature: 40
+            },
+            methods: {
+                toggleIsShow: function () {
+                    this.isShow = !this.isShow;
+                }
+            },
+
+        });
+    </script>
+
+</body>
+</html>
