@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单小结(图片展示)</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+    <h1>知识小结 -> 图片展示</h1>
+    <hr>
+
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img src="./images/logo.png" />
+                深圳创维校区环境
+            </h2>
+            <!-- 图片 -->
+            <img :src="imgArr[index]" />
+            <!-- 左箭头 -->
+            <a @click="prev" class="left" v-show="index>0" >
+                <img src="./images/prev.png" />
+            </a>
+            <!-- 右箭头 -->
+            <a @click="next" class="right" v-show="index<imgArr.length-1" >
+                <img src="./images/next.png" />
+            </a>
+        </div>
+    </div>
+
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#mask",
+            data: {
+                imgArr: [
+                    "./images/00.jpg",
+                    "./images/01.jpg",
+                    "./images/02.jpg",
+                    "./images/03.jpg",
+                    "./images/04.jpg",
+                    "./images/05.jpg",
+                    "./images/06.jpg",
+                    "./images/07.jpg",
+                    "./images/08.jpg",
+                    "./images/09.jpg",
+                    "./images/10.jpg",
+
+                ],
+                index: 0,
+            },
+            methods: {
+                prev: function () {
+                    this.index--;
+                },
+                next: function () {
+                    this.index++;
+                }
+            }
+
+        });
+    </script>
+
+
+</body>
+</html>
