@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind指令学习</title>
+    <style>
+        .active{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>学习v-bind指令学习</h1>
+    <hr>
+
+    <div id="app">
+        v-bind完整方式 <br>
+        <img v-bind:src="imgSrc" :title="title" /> <br>
+        v-bind省略方式 <br>
+        <img :src="imgSrc" :title="title+'~~'" :class="isActive? 'active':'' " @click="toggleActive"/> <br>
+        v-bind另一种绑定class的方式 <br>
+        <img :src="imgSrc" :title="title" :class="{active:isActive}" @click="toggleActive"/>
+    </div>
+
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                isShow: false,
+                imgSrc: "http://www.itheima.com/images/logo.png",
+                title: "嗨马程序员",
+                isActive: false
+            },
+            methods: {
+                toggleActive: function () {
+                    this.isActive = !this.isActive;
+                }
+            },
+
+        });
+    </script>
+</body>
+</html>
