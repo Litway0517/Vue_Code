@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器小控件</title>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+<body>
+    <h1>实现计数器小控件</h1>
+    <hr>
+
+    <!-- html结构 -->
+    <div id="app">
+        <!-- 计数器功能区域 -->
+        <div class="input-num">
+            <button @click="sub">
+                -
+            </button>
+            <span>{{ num }}</span>
+            <button @click="add">
+                +
+            </button>
+        </div>
+        <img src="http://www.itheima.com/images/logo.png" alt="" />
+    </div>
+
+
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                num: 1,
+            },
+            methods: {
+                add: function () {
+                    if (this.num >= 10) {
+                        console.log("已经到达最大了, 不能再增加啦! ");
+                        alert("已经到达最大了, 不能再增加啦! ");
+                    } else {
+                        this.num++;
+                    }
+                },
+                sub: function () {
+                    if (this.num <= 0) {
+                        console.log("已经到达最大了, 不能再增加啦! ");
+                        alert("已经到达最小了, 不能再减少啦~ ");
+                    } else {
+                        this.num--;
+                    }
+
+                }
+            },
+        });
+    </script>
+
+</body>
+</html>
