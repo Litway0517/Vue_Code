@@ -9,15 +9,15 @@
   3. 渲染数据
 */
 
-let vue = new Vue({
+var vue = new Vue({
     el: "#app",
     data: {
-        searchWeather: function () {
-            console.log("天气查询")
-        }
+
     },
     methods: {
-
+        searchWeather: function () {
+            console.log("天气查询");
+        }
     },
 
 });
