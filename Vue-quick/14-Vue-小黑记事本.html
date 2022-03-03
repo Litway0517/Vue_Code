@@ -36,9 +36,9 @@
         <!-- 统计和清空 -->
         <footer class="footer">
             <span class="todo-count">
-                <strong>1</strong> items left
+                <strong>{{ todoList.length }}</strong> items left
             </span>
-            <button class="clear-completed">
+            <button class="clear-completed" @click="clearTodo">
                 Clear
             </button>
         </footer>
@@ -69,7 +69,11 @@
                             从index开始删除1个元素.
                      */
                     this.todoList.splice(index, 1);
-                }
+                },
+                clearTodo: function () {
+                    this.todoList = [];
+                    this.inputMessage = "";
+                },
             }
 
         });
