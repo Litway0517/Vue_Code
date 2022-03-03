@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on指令补充学习</title>
+</head>
+<body>
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <h1>v-on指令的补充学习</h1>
+    <hr>
+
+    <div id="app">
+        <input type="button" value="点击" @click="doIt(666, '老铁')">
+        <!-- @keyup是时间修饰符, 就是说, 能够用来标识事件. @keyup下面有很多的具体的事件, .enter是回车事件 -->
+        <input type="text" @keyup.enter="sayHi">
+    </div>
+
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                // 标签在调用方法时, 可以向方法传递参数. 因此这里通过p1形参来接收参数.
+                doIt: function (p1, p2) {
+                    console.log("It");
+                    console.log(p1, p2)
+                },
+                sayHi: function () {
+                    alert("吃了吗");
+                },
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>
