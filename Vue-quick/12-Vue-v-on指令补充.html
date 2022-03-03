@@ -15,6 +15,7 @@
         <input type="button" value="点击" @click="doIt(666, '老铁')">
         <!-- @keyup是时间修饰符, 就是说, 能够用来标识事件. @keyup下面有很多的具体的事件, .enter是回车事件 -->
         <input type="text" @keyup.enter="sayHi">
+        <input type="text" @keyup.tab="sayHi2">
     </div>
 
     <script>
@@ -32,6 +33,9 @@
                 sayHi: function () {
                     alert("吃了吗");
                 },
+                sayHi2: function () {
+                    console.log("test");
+                }
             }
         });
     </script>
