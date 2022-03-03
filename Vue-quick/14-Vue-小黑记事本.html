@@ -34,7 +34,7 @@
             </ul>
         </section>
         <!-- 统计和清空 -->
-        <footer class="footer">
+        <footer class="footer" v-show="todoList.length>0">
             <span class="todo-count">
                 <strong>{{ todoList.length }}</strong> items left
             </span>
@@ -62,13 +62,19 @@
                     this.todoList.push(this.inputMessage);
                 },
                 deleteTodo: function (index) {
-                    /*
+
+                    if (this.todoList.length == 1) {
+                        this.todoList = [];
+                        this.inputMessage = "";
+                    } else {
+                        /*
                         splice方法:
                             第一个参数start: 这里是index, 是指开始的位置.
                             第二个参数deleteCount: 这里是1, 表示删除几个元素.
                             从index开始删除1个元素.
                      */
-                    this.todoList.splice(index, 1);
+                        this.todoList.splice(index, 1);
+                    }
                 },
                 clearTodo: function () {
                     let boolean = confirm("是否清空TodoList? ");
