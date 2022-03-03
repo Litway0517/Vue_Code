@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for指令学习</title>
+</head>
+<body>
+    <!-- 引入开发版本Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <h1>v-for指令学习</h1>
+    <hr>
+
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in schools">
+                {{ index+1 }}嗨马程序员: {{ item }}
+            </li>
+        </ul>
+        <hr>
+        <input type="button" value="增加数据" @click="add" >
+        <input type="button" value="删除数据" @click="remove" >
+        <h2 v-for="vegetable in vegetables" v-bind:title="vegetable.name">
+            {{ vegetable.name }}
+        </h2>
+    </div>
+
+    <script>
+        let vue = new Vue({
+            el: "#app",
+            data: {
+                schools: ["北京", "上海", "广州", "深圳"],
+                vegetables: [
+                    {name: "西兰花炒蛋"},
+                    {name: "蛋炒西兰花"}
+                ]
+            },
+            methods: {
+                add: function () {
+                    this.vegetables.push({name: "花菜炒蛋"});
+                },
+                remove: function () {
+                    // 这个shift方法, 是针对数组的操作. 默认移除该数组的最左面的数据, 就是索引最小的.
+                    this.vegetables.shift();
+                }
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>
