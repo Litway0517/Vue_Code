@@ -71,8 +71,13 @@
                     this.todoList.splice(index, 1);
                 },
                 clearTodo: function () {
-                    this.todoList = [];
-                    this.inputMessage = "";
+                    let boolean = confirm("是否清空TodoList? ");
+                    if (boolean) {
+                        this.todoList = [];
+                        this.inputMessage = "";
+                    } else {
+                        return false;
+                    }
                 },
             }
 
