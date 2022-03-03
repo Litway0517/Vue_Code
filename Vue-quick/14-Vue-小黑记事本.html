@@ -28,7 +28,7 @@
                     <div class="view">
                         <span class="index">{{ index + 1 }}.</span>
                         <label>{{ item }}</label>
-                        <button class="destroy" ></button>
+                        <button class="destroy" @click="deleteTodo(index)"></button>
                     </div>
                 </li>
             </ul>
@@ -60,6 +60,15 @@
             methods: {
                 addTodo: function () {
                     this.todoList.push(this.inputMessage);
+                },
+                deleteTodo: function (index) {
+                    /*
+                        splice方法:
+                            第一个参数start: 这里是index, 是指开始的位置.
+                            第二个参数deleteCount: 这里是1, 表示删除几个元素.
+                            从index开始删除1个元素.
+                     */
+                    this.todoList.splice(index, 1);
                 }
             }
 
