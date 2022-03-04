@@ -32,9 +32,12 @@ let vue = new Vue({
     data: {
         musicName: "",
         searchMusicList: [],
+        musicUrl: "",
+
 
     },
     methods: {
+        // 搜索音乐功能
         searchMusic: function () {
             console.log(this.musicName);
             var that = this;
@@ -46,7 +49,21 @@ let vue = new Vue({
                 .catch(function (err) {
                     console.log(err);
                 });
-        }
+        },
+        // 播放音乐功能
+        playMusic: function (musicId) {
+            var that = this;
+            axios.get("https://autumnfish.cn/song/url?id=" + musicId)
+                .then(function (response) {
+                    // 注意取数据的正确性. 不正确的 -> response.data.data.url.
+                    // 正缺的 -> response.data.data[0].url
+                    console.log(response.data.data[0].url);
+                    that.musicUrl = response.data.data[0].url;
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        },
     }
 
 });
