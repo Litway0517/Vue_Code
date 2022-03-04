@@ -26,3 +26,45 @@
     请求参数:id(mvid,为0表示没有mv)
     响应内容:mv的地址
 */
+
+let vue = new Vue({
+    el: "#player",
+    data: {
+        musicName: "",
+        searchMusicList: [],
+
+    },
+    methods: {
+        searchMusic: function () {
+            console.log(this.musicName);
+            var that = this;
+            axios.get("https://autumnfish.cn/search?keywords=" + this.musicName)
+                .then(function (response) {
+                    console.log(response.data.result.songs);
+                    that.searchMusicList = response.data.result.songs;
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+    }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
