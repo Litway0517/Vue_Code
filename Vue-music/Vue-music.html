@@ -37,7 +37,7 @@
                     <img src="images/line.png" class="switch_btn" alt="">
                 </div>
                 <!-- 歌曲信息容器 -->
-                <div class="player_con">
+                <div class="player_con" :class="{playing:isPlaying}">
                     <img src="images/player_bar.png" class="play_bar" />
                     <!-- 黑胶碟片 -->
                     <img src="images/disc.png" class="disc autoRotate" />
@@ -63,7 +63,7 @@
                 这里面使用:class绑定样式. 样式playing取决于isPlaying的值 如果为true则加上这个css否则不加上.
                 本质这是通过vue来操作css样式的.
             -->
-            <div class="audio_con" :class="{playing:isPlaying}">
+            <div class="audio_con">
                 <!-- 这个ref就是用来监听的 不能少 -->
                 <audio ref='audio' :src="musicUrl" @play="play" @pause="pause" controls autoplay loop class="myaudio"></audio>
             </div>
