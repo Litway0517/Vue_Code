@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0"/>
     <meta http-equiv="X-UA-Compatoible" content="ie=edge"/>
     <title>悦听player</title>
-    <link rel="stylesheet" href="css/index_music.css" >
+    <link rel="stylesheet" href="./css/index_music.css" >
 </head>
 <body>
 
@@ -47,11 +47,11 @@
                 <div class="comment_wrapper">
                     <h5 class='title'>热门留言</h5>
                     <div class='comment_list'>
-                        <dl >
-                            <dt><img  alt=""></dt>
-                            <dd class="name"></dd>
+                        <dl v-for="item in musicHotComments" >
+                            <dt><img :src="item.user.avatarUrl" alt=""></dt>
+                            <dd class="name">{{ item.user.nickname }}</dd>
                             <dd class="detail">
-
+                                {{ item.content }}
                             </dd>
                         </dl>
                     </div>
