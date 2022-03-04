@@ -29,7 +29,7 @@
                         <li v-for="music in searchMusicList">
                             <a href="javascript:;" @click="playMusic(music.id)"></a>
                             <b>{{ music.name }}</b>
-                            <span>
+                            <span v-if="music.mvid != 0" @click="playMusicMV(music.mvid)">
                                 <i></i>
                             </span>
                         </li>
@@ -67,9 +67,9 @@
                 <!-- 这个ref就是用来监听的 不能少 -->
                 <audio ref='audio' :src="musicUrl" @play="play" @pause="pause" controls autoplay loop class="myaudio"></audio>
             </div>
-            <div class="video_con" style="display: none;">
-                <video  controls="controls"></video>
-                <div class="mask" ></div>
+            <div class="video_con" v-show="isShow" style="display: none;">
+                <video :src="mvUrl" controls="controls"></video>
+                <div class="mask" @click="closeMask" ></div>
             </div>
         </div>
     </div>
