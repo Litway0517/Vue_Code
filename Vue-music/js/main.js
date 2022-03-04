@@ -30,6 +30,8 @@
 let vue = new Vue({
     el: "#player",
     data: {
+        // 遮罩层的显示状态
+        isShow: false,
         // 搜索框中的歌曲名称
         musicName: "",
         // 歌曲列表
@@ -42,7 +44,8 @@ let vue = new Vue({
         musicHotComments: [],
         // 动画播放状态
         isPlaying: false,
-
+        // MV的播放地址
+        mvUrl: "",
 
     },
     methods: {
@@ -111,6 +114,24 @@ let vue = new Vue({
         pause: function () {
             console.log("暂停");
             this.isPlaying = false;
+        },
+        // 播放歌曲MV
+        playMusicMV: function (mvId) {
+            var that = this;
+            axios.get("https://autumnfish.cn/mv/url?id=" + mvId)
+                .then(function (response) {
+                    console.log(response);
+                    // 开启遮罩层 !
+                    that.isShow = true;
+                    that.mvUrl = response.data.data.url;
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        },
+        // 关闭遮罩层
+        closeMask: function () {
+            this.isShow = false;
         },
     }
 
