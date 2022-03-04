@@ -58,8 +58,14 @@
                     <img src="images/line.png" class="right_line">
                 </div>
             </div>
-            <div class="audio_con">
-                <audio :src="musicUrl"  controls autoplay loop class="myaudio"></audio>
+
+            <!--
+                这里面使用:class绑定样式. 样式playing取决于isPlaying的值 如果为true则加上这个css否则不加上.
+                本质这是通过vue来操作css样式的.
+            -->
+            <div class="audio_con" :class="{playing:isPlaying}">
+                <!-- 这个ref就是用来监听的 不能少 -->
+                <audio ref='audio' :src="musicUrl" @play="play" @pause="pause" controls autoplay loop class="myaudio"></audio>
             </div>
             <div class="video_con" style="display: none;">
                 <video  controls="controls"></video>
