@@ -40,7 +40,8 @@ let vue = new Vue({
         musicImgUrl: "",
         // 当前歌曲的评论
         musicHotComments: [],
-
+        // 动画播放状态
+        isPlaying: false,
 
 
     },
@@ -51,7 +52,7 @@ let vue = new Vue({
             var that = this;
             axios.get("https://autumnfish.cn/search?keywords=" + this.musicName)
                 .then(function (response) {
-                    console.log("歌曲数据 -> " + response.data.result.songs);
+                    console.log(response.data.result.songs);
                     that.searchMusicList = response.data.result.songs;
                 })
                 .catch(function (err) {
@@ -100,6 +101,16 @@ let vue = new Vue({
                 })
                 .catch(function () {});
 
+        },
+        // 播放音乐
+        play: function () {
+            console.log("播放");
+            this.isPlaying = true;
+        },
+        // 暂停音乐
+        pause: function () {
+            console.log("暂停");
+            this.isPlaying = false;
         },
     }
 
