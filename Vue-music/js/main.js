@@ -38,6 +38,9 @@ let vue = new Vue({
         musicUrl: "",
         // 歌曲Img地址
         musicImgUrl: "",
+        // 当前歌曲的评论
+        musicHotComments: [],
+
 
 
     },
@@ -71,7 +74,10 @@ let vue = new Vue({
 
             // 调用加载图片功能
             this.setMusicImg(musicId);
+            // 调用获取评论功能
+            this.setMusicCommons(musicId);
         },
+
         // 设置播放时的图片
         setMusicImg: function (musicId) {
             var that = this;
@@ -83,8 +89,18 @@ let vue = new Vue({
                 .catch(function (err) {
                     console.log(err);
                 });
+        },
+        // 设置歌曲的评论
+        setMusicCommons: function (musicId) {
+            var that = this;
+            axios.get("https://autumnfish.cn/comment/hot?type=0&id=" + musicId)
+                .then(function (response) {
+                    console.log(response.data.hotComments);
+                    that.musicHotComments = response.data.hotComments;
+                })
+                .catch(function () {});
 
-        }
+        },
     }
 
 });
