@@ -31,10 +31,10 @@
                 </button>
             </div>
             <div class="hotkey">
-                <a href="javascript:;">北京</a>
-                <a href="javascript:;">上海</a>
-                <a href="javascript:;">广州</a>
-                <a href="javascript:;">深圳</a>
+                <a href="javascript:;" @click="changCity('北京')">北京</a>
+                <a href="javascript:;" @click="changCity('上海')">上海</a>
+                <a href="javascript:;" @click="changCity('广州')">广州</a>
+                <a href="javascript:;" @click="changCity('深圳')">深圳</a>
             </div>
         </div>
         <ul class="weather_list">
@@ -43,9 +43,9 @@
                     <span class="iconfont">{{ item.type }}</span>
                 </div>
                 <div class="info_temp">
-                    <b>{{ item.high }}</b>
-                    ~
                     <b>{{ item.low }}</b>
+                    ~
+                    <b>{{ item.high }}</b>
                 </div>
                 <div class="info_date">
                     <span>{{ item.date }}</span>
