@@ -17,7 +17,6 @@ var vue = new Vue({
     },
     methods: {
         searchWeather: function () {
-            console.log("天气查询");
             console.log(this.city);
             // 将this对象引用保存起来. 因为要进入axios中了. this会改变
             var that = this;
@@ -29,6 +28,10 @@ var vue = new Vue({
                 .catch(function (err) {
                     console.log(err);
             });
+        },
+        changCity: function (city) {
+            this.city = city;
+            this.searchWeather();
         }
     },
 
