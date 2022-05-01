@@ -27,15 +27,12 @@
             computed: {
                 // methods和computed方法不能重名, 重名之后只会调用methods的方法
                 // computed中的方法经过计算之后返回值会存储到方法的名称上作为一个变量缓存到内存中, 当没有增删改时, 这个返回值不会重新计算
+                // 计算属性一般用作缓存不经常变化的结果, 减少浏览器开销
                 currentTime2: function () {
                     this.message = "litway";
                     return Date.now();
                 }
             },
-
-
-
-
 
 
         });
